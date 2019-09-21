@@ -1,5 +1,5 @@
 int moveX = 50;
-int moveY = 50;
+int moveY = 100;
 int frogX = 400;
 int frogY = 550;
 int joe1X = 50;
@@ -10,6 +10,7 @@ int joe3X = 50;
 int joe3Speed = 7;
 int joe4X = width-=50;
 int joe4Speed = 3;
+int Points = 0;
 boolean j1;
 boolean j2;
 boolean j3;
@@ -32,6 +33,7 @@ void draw() {
     joe1X=0;
   }
   j1 = joe1.intersects(joe1);
+  println();
   Car joe2 = new Car(joe2X, 200, 100, joe2Speed);
   joe2.display();
   joe2X -= joe2Speed;
@@ -53,23 +55,32 @@ void draw() {
     joe4X=width;
   }
   j4 = joe4.intersects(joe4);
-  if (frogY>=599||frogY<=1||frogX>=799||frogX<=1) {
-    frogY = 550;
-    frogX = 400;
+  if (frogY>=599||frogX>=799||frogX<=1) {
+    println("Don't hit the walls!");
+    reStart();
   }
-  if(j1){
-    stop();
+  if(frogY<=1){
+    Points++;
+    reStart();
   }
-  if(j2){
-    stop();
+  if(j1||j2||j3||j4){
+       println("Hit by a car!");
+       Points--;
+   reStart();
+
   }
-  if(j3){
-    stop();
-  }
-  if(j4){
-    stop();
+  fill(255,255,255);
+  textSize(25);
+  text("Points: " + Points,1,25);
+  
+  if(Points<0){
+   Points = 0; 
   }
   
+}
+void reStart(){
+ frogY = 550;
+ frogX = 400;
 }
 
 void keyPressed()
@@ -113,8 +124,9 @@ class Car {
 
 
   boolean intersects(Car car) {
-    if ((frogY > car.getY() && frogY < car.getY()+50) && (frogX > car.getX() && frogX < car.getX()+car.getSize()))
+    if ((frogY > car.getY() && frogY < car.getY()+100) && (frogX > car.getX() && frogX < car.getX()+car.getSize()))
     {
+      
       return true;
     } else
     {
@@ -135,6 +147,6 @@ class Car {
   public void display() 
   {
     fill(carX+50, carY+50, carX+35);
-    rect(carX, carY, carSize, 50);
+    rect(carX, carY+25, carSize, 50);
   }
 }
