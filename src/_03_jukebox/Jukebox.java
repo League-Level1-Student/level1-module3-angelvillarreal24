@@ -109,7 +109,7 @@ class Song {
 		}
 	}
 
-	private void loadFile() {
+	 void loadFile() {
 		if (songAddress.contains("http"))
 			this.songStream = loadStreamFromInternet();
 		else
