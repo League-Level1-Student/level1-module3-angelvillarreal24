@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Level1-Module3:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Level1_Module3_jar</output-path>
+    <root id="archive" name="Level1-Module3.jar">
+      <element id="module-output" name="Level1-Module3" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/gridworld.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/javazoom.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

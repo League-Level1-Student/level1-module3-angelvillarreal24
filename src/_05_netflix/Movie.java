@@ -8,6 +8,30 @@ package _05_netflix;
 
 public class Movie implements Comparable<Movie> {
 
+	public static void main(String[] args) {
+		Movie movie = new Movie("Twilight", 1);
+		System.out.println(movie.getTicketPrice());
+		Movie bruh = new Movie("Star Wars: Bruh Moment ", 4);
+		Movie lol = new Movie("The Pursuit of Happiness", 5);
+		Movie nonbad = new Movie("Coco", 100000);
+		Movie reallybad = new Movie("Frozen",3);
+
+		NetflixQueue n = new NetflixQueue();
+
+		n.addMovie(movie);
+		n.addMovie(bruh);
+		n.addMovie(lol);
+		n.printMovies();
+
+
+
+		System.out.println("The Best Movie is " + n.getMovie(2));
+		System.out.println("The second Best Movie is " + n.getMovie(1));
+
+
+
+	}
+
 	private String title;
 	private int stars;
 
